@@ -6,6 +6,10 @@ public class Main {
 
 
         ArrayList<Kund> kunder = new ArrayList<>();
+        ArrayList<Konto> konton = new ArrayList<>();
+
+
+
         Scanner scanner = new Scanner(System.in);
 
         while(true){
@@ -23,7 +27,23 @@ public class Main {
 
             String personnummer = scanner.nextLine();
 
-            kunder.add(new Kund(namn, kundID, personnummer));
+
+            //ny kund i listan med sin egna unikheter
+            Kund nyKund = new Kund(namn, kundID, personnummer);
+            kunder.add(nyKund);
+
+            System.out.println("hur mycket saldo vill du lägga till i konto med kundID" + kundID + "?");
+            float saldo = scanner.nextFloat();
+
+            String kontonummer = "konto" + kundID;
+            Konto nyttkonto = new Konto(kontonummer, saldo);
+            konton.add(nyttkonto);
+
+            System.out.println("Namn: " + nyKund.getName());
+            System.out.println("Saldo: " + nyttkonto.getSaldo());
+
+
+
 
 
 

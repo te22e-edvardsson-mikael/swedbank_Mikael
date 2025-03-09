@@ -13,6 +13,12 @@ public class Konto {
         saldo += belopp;
 
     }
+
+
+    //"getter" som i de andra
+    public float getSaldo(){
+        return saldo;
+    }
 }
 
 
