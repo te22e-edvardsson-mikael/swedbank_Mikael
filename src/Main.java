@@ -22,6 +22,7 @@ public class Main {
             System.out.println("Ange ditt kund-ID; ");
 
             int kundID = scanner.nextInt();
+            scanner.nextLine(); // behöver vara där annars blir det något loop typ
 
             System.out.println("Ange personnummer: ");
 
@@ -34,6 +35,8 @@ public class Main {
 
             System.out.println("hur mycket saldo vill du lägga till i konto med kundID" + kundID + "?");
             float saldo = scanner.nextFloat();
+            scanner.nextLine(); // behöver vara där annars blir det något loop typ
+
 
             String kontonummer = "konto" + kundID;
             Konto nyttkonto = new Konto(kontonummer, saldo);
@@ -41,6 +44,8 @@ public class Main {
 
             System.out.println("Namn: " + nyKund.getName());
             System.out.println("Saldo: " + nyttkonto.getSaldo());
+
+            break; //avsluta while loopen
 
 
 
