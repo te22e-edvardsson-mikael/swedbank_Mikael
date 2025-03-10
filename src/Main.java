@@ -42,6 +42,7 @@ public class Main {
             Konto nyttkonto = new Konto(kontonummer, saldo);
             konton.add(nyttkonto);
 
+            System.out.println("Konto informationen för kund med ID" + nyKund.getKundID() + "samt personnummer " + nyKund.getPersonnummer());
             System.out.println("Namn: " + nyKund.getName());
             System.out.println("Saldo: " + nyttkonto.getSaldo());
 

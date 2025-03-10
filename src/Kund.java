@@ -17,5 +17,13 @@ public class Kund {
         return name;
     }
 
+    public String getPersonnummer(){
+        return personnummer;
+    }
+
+    public int getKundID(){
+        return kundID;
+    }
+
 
 }
