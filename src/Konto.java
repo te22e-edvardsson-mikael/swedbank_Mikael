@@ -19,6 +19,10 @@ public class Konto {
     public float getSaldo(){
         return saldo;
     }
+
+    public String getKontonmr(){
+        return kontonmr;
+    }
 }
 
 

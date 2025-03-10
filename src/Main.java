@@ -38,7 +38,7 @@ public class Main {
             scanner.nextLine(); // behöver vara där annars blir det något loop typ
 
 
-            String kontonummer = "konto" + kundID;
+            String kontonummer = "konto: " + kundID;
             Konto nyttkonto = new Konto(kontonummer, saldo);
             konton.add(nyttkonto);
 
