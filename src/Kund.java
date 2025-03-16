@@ -1,29 +1,41 @@
-public class Kund {
-    private String name;
+import java.util.ArrayList;
+
+public class Kund extends Person {
     private int kundID;
-    private String personnummer;
+    private ArrayList<Konto> konton;
+    private Lan lan;
 
-
-    //varje kund ska ha ett namn, sin id och personnummer
-    public Kund(String name, int kundID, String personnummer){
-        this.name = name;
-        this.kundID = kundID;
-        this.personnummer = personnummer;
-    }
-
-
-    //kallas för getter och används för att kunna komma åt name eftersom den är private
-    public String getName() {
-        return name;
-    }
-
-    public String getPersonnummer(){
-        return personnummer;
-    }
 
     public int getKundID(){
         return kundID;
     }
+
+    public Kund(String name, int kundID, String personnummer){
+        super(name, personnummer);
+        this.kundID = kundID;
+        this.konton = new ArrayList<>();
+
+    }
+
+    public void laggtillKonto(Konto konto){
+        konton.add(konto);
+    }
+
+    public ArrayList<Konto> getKonton(){
+        return konton;
+    }
+
+    public void laggTillLan(float belopp){
+        this.lan = new Lan(belopp);
+    }
+
+    public float getLaneBelopp(){
+        return lan != null ? lan.getBelopp() : 0;
+    }
+
+
+
+
 
 
 }
