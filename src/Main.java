@@ -40,6 +40,27 @@ public class Main {
                 System.out.println("tagit lån: " + lanebelopp);
             }
 
+            System.out.println("ditt lånebelopp: " + nyKund.getLaneBelopp());
+            System.out.println("1. Sparkonto");
+            System.out.println("2. Lånekonto");
+            int kontoTyp = scanner.nextInt();
+            scanner.nextLine();
+
+
+
+            Konto nyttKonto;
+            String kontonummer = "ID" + kundID;
+
+            if (kontoTyp == 1){
+                nyttKonto = new SparKonto(kontonummer, saldo){
+
+                }
+            }
+
+
+
+
+
 
 
 
