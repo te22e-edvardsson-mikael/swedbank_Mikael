@@ -8,9 +8,9 @@ public class LaneKonto extends Konto {
     }
 
     @Override
-    public float taut(float belopp){
+    public void taUt(float belopp, float saldo){
         if (saldo - belopp <- kreditgrans){
-            System.out.println("Du har inte tillräckligt med kreditgräns");
+           System.out.println("Du har inte tillräckligt med kreditgräns");
         }
         else {
             saldo -= belopp;

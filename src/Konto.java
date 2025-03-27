@@ -23,6 +23,9 @@ abstract class Konto {
     public String getKontonmr(){
         return kontonmr;
     }
+
+
+    abstract void taUt(float belopp, float saldo);
 }
 
 
