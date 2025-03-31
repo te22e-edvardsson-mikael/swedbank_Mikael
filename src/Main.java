@@ -66,6 +66,8 @@ public class Main {
 
             }
 
+            nyKund.laggtillKonto(nyttKonto);
+
 
             nyKund.laggtillKonto("Konto skappad: " + nyttKonto.getKontonmr() + " saldo: " + nyttKonto.getSaldo());
 
