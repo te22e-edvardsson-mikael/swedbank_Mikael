@@ -71,26 +71,15 @@ public class Main {
 
                nyKund.laggtillKonto(nyttKonto);
 
+               nyKund.visaInfoKonto();
+
 
            } catch (InputMismatchException e) {
                System.out.println("fel inmattning");
            }
-
-
-
-
-
-
-
-
-
-            break; //avsluta while loopen
-
-
-
-
-
-
+           finally {
+               scanner.close();
+           }
         }
     }
 }
