@@ -17,7 +17,7 @@ public class Kund extends Person {
 
     }
     //lista för konton, samt ett sätt att få ut objekt
-    public void laggtillKonto(Konto konto){
+    public void laggtillKonto(String konto){
         konton.add(konto);
     }
 

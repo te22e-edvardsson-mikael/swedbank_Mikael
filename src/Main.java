@@ -65,7 +65,9 @@ public class Main {
                nyttKonto = new LaneKonto(kontonummer, saldo, kreditgrans);
 
             }
-            System.out.println(LaneKonto);
+
+
+            nyKund.laggtillKonto("Konto skappad: " + nyttKonto.getKontonmr() + " saldo: " + nyttKonto.getSaldo());
 
 
 
