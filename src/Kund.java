@@ -33,6 +33,12 @@ public class Kund extends Person {
         return lan != null ? lan.getBelopp() : 0;
     }
 
+    public void visaInfoKonto(){
+        for (Konto k : konton){
+            System.out.println("Konto skappad: " + k.getKontonmr() + " saldo: " + k.getSaldo());
+        }
+    }
+
 
 
 

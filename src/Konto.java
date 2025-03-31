@@ -24,7 +24,6 @@ abstract class Konto {
         return kontonmr;
     }
 
-    public void laggtillKonto(String Konto);
 
 
     abstract void taUt(float belopp, float saldo);
