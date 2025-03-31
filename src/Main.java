@@ -46,16 +46,28 @@ public class Main {
             int kontoTyp = scanner.nextInt();
             scanner.nextLine();
 
+            System.out.println("hur mycket vill du lägga in?");
+            float saldo = scanner.nextFloat();
+            scanner.nextLine();
+
 
 
             Konto nyttKonto;
             String kontonummer = "ID" + kundID;
 
             if (kontoTyp == 1){
-                nyttKonto = new SparKonto(kontonummer, saldo){
-
-                }
+                nyttKonto = new SparKonto(kontonummer, saldo);
             }
+            else {
+                System.out.println("ange kreditgräns: ");
+               float kreditgrans = scanner.nextFloat();
+               scanner.nextLine();
+               nyttKonto = new LaneKonto(kontonummer, saldo, kreditgrans);
+
+            }
+            System.out.println(LaneKonto);
+
+
 
 
 
