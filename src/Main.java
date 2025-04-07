@@ -12,74 +12,86 @@ public class Main {
         System.out.println("Du visiterar Swedbank");
 
 
-
-        while(true){
-
-           try {
-               System.out.println("Ange namn för konto: ");
+        boolean fortsatt = true;
 
 
-               String namn = scanner.nextLine();
 
-               System.out.println("Ange ditt kund-ID; ");
-               int kundID = scanner.nextInt();
-               scanner.nextLine(); // behöver vara där annars blir det något loop typ
+        while(fortsatt) {
 
-               System.out.println("Ange personnummer: ");
-               String personnummer = scanner.nextLine();
+            try {
+                System.out.println("Ange namn för konto: ");
 
 
-               //ny kund i listan med sin egna unikheter
-               Kund nyKund = new Kund(namn, kundID, personnummer);
-               kunder.add(nyKund);
-               System.out.println("Kund registerad!");
+                String namn = scanner.nextLine();
 
-               System.out.println("vill du ta ett lån (ja/nej)");
-               String svar = scanner.nextLine();
-               if (svar.equalsIgnoreCase("ja")) {
-                   System.out.println("ange lånbelopp: ");
-                   float lanebelopp = scanner.nextFloat();
-                   scanner.nextLine();
-                   nyKund.laggTillLan(lanebelopp);
-                   System.out.println("tagit lån: " + lanebelopp);
-               }
+                System.out.println("Ange ditt kund-ID; ");
+                int kundID = scanner.nextInt();
+                scanner.nextLine(); // behöver vara där annars blir det något loop typ
 
-               System.out.println("ditt lånebelopp: " + nyKund.getLaneBelopp());
-               System.out.println("1. Sparkonto");
-               System.out.println("2. Lånekonto");
-               int kontoTyp = scanner.nextInt();
-               scanner.nextLine();
-
-               System.out.println("hur mycket vill du lägga in?");
-               float saldo = scanner.nextFloat();
-               scanner.nextLine();
+                System.out.println("Ange personnummer: ");
+                String personnummer = scanner.nextLine();
 
 
-               Konto nyttKonto;
-               String kontonummer = "ID" + kundID;
+                //ny kund i listan med sin egna unikheter
+                Kund nyKund = new Kund(namn, kundID, personnummer);
+                kunder.add(nyKund);
+                System.out.println("Kund registerad!");
 
-               if (kontoTyp == 1) {
-                   nyttKonto = new SparKonto(kontonummer, saldo);
-               } else {
-                   System.out.println("ange kreditgräns: ");
-                   float kreditgrans = scanner.nextFloat();
-                   scanner.nextLine();
-                   nyttKonto = new LaneKonto(kontonummer, saldo, kreditgrans);
+                System.out.println("vill du ta ett lån (ja/nej)");
+                String svar = scanner.nextLine();
+                if (svar.equalsIgnoreCase("ja")) {
+                    System.out.println("ange lånbelopp: ");
+                    float lanebelopp = scanner.nextFloat();
+                    scanner.nextLine();
+                    nyKund.laggTillLan(lanebelopp);
+                    System.out.println("tagit lån: " + lanebelopp);
+                }
 
-               }
+                System.out.println("ditt lånebelopp: " + nyKund.getLaneBelopp());
+                System.out.println("1. Sparkonto");
+                System.out.println("2. Lånekonto");
+                int kontoTyp = scanner.nextInt();
+                scanner.nextLine();
+
+                System.out.println("hur mycket vill du lägga in?");
+                float saldo = scanner.nextFloat();
+                scanner.nextLine();
 
 
-               nyKund.laggtillKonto(nyttKonto);
+                Konto nyttKonto;
+                String kontonummer = "ID" + kundID;
 
-               nyKund.visaInfoKonto();
+                if (kontoTyp == 1) {
+                    nyttKonto = new SparKonto(kontonummer, saldo);
+                } else {
+                    System.out.println("ange kreditgräns: ");
+                    float kreditgrans = scanner.nextFloat();
+                    scanner.nextLine();
+                    nyttKonto = new LaneKonto(kontonummer, saldo, kreditgrans);
+
+                }
 
 
-           } catch (InputMismatchException e) {
-               System.out.println("fel inmattning");
-           }
-           finally {
-               scanner.close();
-           }
+                nyKund.laggtillKonto(nyttKonto);
+
+                nyKund.visaInfoKonto();
+
+
+            } catch (InputMismatchException e) {
+                System.out.println("fel inmattning");
+                scanner.nextLine();
+            }
+
+
+            System.out.println("vill du lägga till ytterligare kund?");
+            String fortsattsvar = scanner.nextLine();
+            if (!fortsattsvar.equalsIgnoreCase("ja")) {
+                fortsatt = false;
+            }
         }
+
+               scanner.close();
+
+
     }
 }
