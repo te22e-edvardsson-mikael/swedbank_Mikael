@@ -34,18 +34,13 @@ public class Main {
                     Jobbare nyJobbare = new Jobbare(namn, personnummer);
                     jobbarelista.add(nyJobbare);
 
-
-
-
+                    System.out.println("Jobbare registrerad");
 
 
                 }
 
 
 
-                System.out.println("Ange ditt kund-ID; ");
-                int kundID = scanner.nextInt();
-                scanner.nextLine(); // behöver vara där annars blir det något loop typ
 
 
 
@@ -54,6 +49,18 @@ public class Main {
 
 
                 else if (typ.equalsIgnoreCase("kund")) {
+
+                    System.out.println("ange ditt namn: ");
+                    String namn = scanner.nextLine();
+
+
+                    System.out.println("Ange ditt kund-ID; ");
+                    int kundID = scanner.nextInt();
+                    scanner.nextLine(); // behöver vara där annars blir det något loop typ
+
+                    System.out.println("Ange personnummer: ");
+                    String personnummer = scanner.nextLine();
+
 
 
                     //ny kund i listan med sin egna unikheter
@@ -116,6 +123,7 @@ public class Main {
             }
         }
 
+        System.out.println(jobbarelista);
                scanner.close();
 
 
