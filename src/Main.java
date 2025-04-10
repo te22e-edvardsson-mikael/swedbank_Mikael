@@ -7,6 +7,7 @@ public class Main {
 
 
         ArrayList<Kund> kunder = new ArrayList<>();
+        ArrayList<Jobbare> jobbarelista = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Du visiterar Swedbank");
@@ -20,29 +21,37 @@ public class Main {
 
             try {
 
+                System.out.println("Vill du registrera en kund eller ha ett jobb (kund/Jobb");
+                String typ = scanner.nextLine();
 
-                System.out.println("Ange ditt namn: ");
+                if (typ.equalsIgnoreCase("Jobb")){
+                    System.out.println("ange ditt namn: ");
+                    String namn = scanner.nextLine();
 
-                String namn = scanner.nextLine();
+                    System.out.println("Ange personnummer: ");
+                    String personnummer = scanner.nextLine();
+
+                    Jobbare nyJobbare = new Jobbare(namn, personnummer);
+                    jobbarelista.add(nyJobbare);
+
+
+
+
+
+
+                }
+
+
 
                 System.out.println("Ange ditt kund-ID; ");
                 int kundID = scanner.nextInt();
                 scanner.nextLine(); // behöver vara där annars blir det något loop typ
 
-                System.out.println("Ange personnummer: ");
-                String personnummer = scanner.nextLine();
-
-                System.out.println("Vill du ansöka för jobb eller bli kund?");
-                String typ = scanner.nextLine();
-
-                if (typ.equalsIgnoreCase("jobb")){
-                    System.out.println("Ange namn ");
-
-                    Jobbare NyJobbare = new Jobbare(namn, personnummer);
-                    System.out.println("");
 
 
-                }
+
+
+
 
                 else if (typ.equalsIgnoreCase("kund")) {
 
