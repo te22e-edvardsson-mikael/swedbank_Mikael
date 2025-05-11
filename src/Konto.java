@@ -26,7 +26,7 @@ abstract class Konto {
 
 
 
-    abstract void taUt(float belopp, float saldo);
+    abstract void taUt(float belopp);
 }
 
 

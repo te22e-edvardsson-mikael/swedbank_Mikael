@@ -39,15 +39,6 @@ public class Main {
 
                 }
 
-
-
-
-
-
-
-
-
-
                 else if (typ.equalsIgnoreCase("kund")) {
 
                     System.out.println("ange ditt namn: ");
@@ -123,7 +114,7 @@ public class Main {
             }
         }
 
-        System.out.println(jobbarelista);
+        System.out.println(jobbarelista.get(0));
                scanner.close();
 
 

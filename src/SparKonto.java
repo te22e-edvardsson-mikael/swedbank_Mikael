@@ -4,13 +4,13 @@ public class SparKonto extends Konto{
 
     }
 @Override
-    public void taUt(float belopp, float saldo){
-        if (belopp>saldo){
+    public void taUt(float belopp){
+        if (belopp>getSaldo()){
             System.out.println("du har inte tillräckligt med pengar");
         }
         else {
-            saldo-= belopp;
-             System.out.println("uttagningen lyckades: " + saldo);
+            SetterIn(-belopp);
+             System.out.println("uttagningen lyckades: " + getSaldo());
         }
     }
 }
