@@ -97,6 +97,34 @@ public class Main {
                     nyKund.laggtillKonto(nyttKonto);
 
                     nyKund.visaInfoKonto();
+
+                    System.out.println("Vill du ta ut pengar? (ja/nej)");
+
+                    String svartaut = scanner.nextLine();
+                    if (svartaut.equalsIgnoreCase("ja"))
+                    {
+                        System.out.println("Ange konto att ta ut från (ange ID): ");
+                        String kontoID = scanner.nextLine();
+
+
+                        Konto valtKonto = null;
+                        for (Konto k : nyKund.getKonton()){
+                            if (k.getKontonmr().equals(kontoID))
+                            {
+                                valtKonto = k;
+                                break;
+                            }
+                        }
+                        if (valtKonto != null){
+                            System.out.println("Ange belopp att ta ut: ");
+                            float belopp = scanner.nextFloat();
+                            scanner.nextLine();
+                            valtKonto.taUt(belopp);
+                        }
+                        else {
+                            System.out.println("Konto med ID:t hittades inte");
+                        }
+                    }
                 }
 
 

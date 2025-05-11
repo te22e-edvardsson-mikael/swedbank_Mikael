@@ -9,8 +9,8 @@ public class SparKonto extends Konto{
             System.out.println("du har inte tillräckligt med pengar");
         }
         else {
-            SetterIn(-belopp);
-             System.out.println("uttagningen lyckades: " + getSaldo());
+            setterIn(-belopp);
+             System.out.println("uttagningen lyckades, nytt saldo:: " + getSaldo());
         }
     }
 }

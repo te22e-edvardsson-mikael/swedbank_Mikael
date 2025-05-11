@@ -8,14 +8,13 @@ public class LaneKonto extends Konto {
     }
 
     @Override
-    public void taUt(float belopp, float saldo){
-        if (saldo - belopp <- kreditgrans){
-           System.out.println("Du har inte tillräckligt med kreditgräns");
+    public void taUt(float belopp){
+        if (getSaldo() - belopp < - kreditgrans){
+            System.out.println("du har inte tillräckligt med kreditgräns");
         }
         else {
-            saldo -= belopp;
-            System.out.println("uttag lyckades! Nytt saldo: " + saldo);
+            setterIn(-belopp);
+            System.out.println("uttagningen lyckades, nytt saldo: " + getSaldo());
         }
-
     }
 }
