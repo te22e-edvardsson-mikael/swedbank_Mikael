@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -21,7 +23,7 @@ public class Main {
 
             try {
 
-                System.out.println("Vill du registrera en kund eller ha ett jobb (kund/Jobb");
+                System.out.println("Vill du registrera en kund eller ha ett jobb (kund/Jobb)");
                 String typ = scanner.nextLine();
 
                 if (typ.equalsIgnoreCase("Jobb")){
@@ -34,7 +36,11 @@ public class Main {
                     Jobbare nyJobbare = new Jobbare(namn, personnummer);
                     jobbarelista.add(nyJobbare);
 
-                    System.out.println("Jobbare registrerad");
+                    LocalDate idag = LocalDate.now();
+                    LocalDate start = idag.plusWeeks(1);
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+                    System.out.println("Välkommen till ditt nya jobb " + namn + "! Ditt startdatum: " + start.format(formatter));
 
 
                 }
@@ -103,8 +109,8 @@ public class Main {
                     String svartaut = scanner.nextLine();
                     if (svartaut.equalsIgnoreCase("ja"))
                     {
-                        System.out.println("Ange konto att ta ut från (ange ID): ");
-                        String kontoID = scanner.nextLine();
+                        System.out.println("Ange konto ID:t av det konto att ta ut från (ange endast ID numret): ");
+                        String kontoID = "ID" + scanner.nextLine();
 
 
                         Konto valtKonto = null;
