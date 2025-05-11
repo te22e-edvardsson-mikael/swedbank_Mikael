@@ -7,6 +7,7 @@ public class LaneKonto extends Konto {
 
     }
 
+    //Lånekontot kan ta ut mera pengar än vad den har, ända upp till kreditgränsen
     @Override
     public void taUt(float belopp){
         if (getSaldo() - belopp < - kreditgrans){

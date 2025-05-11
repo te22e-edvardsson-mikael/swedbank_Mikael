@@ -9,7 +9,7 @@ public class Kund extends Person {
     public int getKundID(){
         return kundID;
     }
-//varje kund har variabler
+//konstruktor
     public Kund(String name, int kundID, String personnummer){
         super(name, personnummer);
         this.kundID = kundID;
@@ -21,10 +21,11 @@ public class Kund extends Person {
         konton.add(konto);
     }
 
+
     public ArrayList<Konto> getKonton(){
         return konton;
     }
-    //funktioner
+    //skapar ett nytt lån
     public void laggTillLan(float belopp){
         this.lan = new Lan(belopp);
     }
@@ -33,6 +34,7 @@ public class Kund extends Person {
         return lan != null ? lan.getBelopp() : 0;
     }
 
+    //skriver ut info om all kundens konton
     public void visaInfoKonto(){
         for (Konto k : konton){
             System.out.println("Konto skappad: " + k.getKontonmr() + " saldo: " + k.getSaldo());

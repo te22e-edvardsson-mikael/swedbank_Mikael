@@ -3,7 +3,7 @@ abstract class Konto {
     private float saldo;
 
 
-
+    //gemensam abstrakt klass för konto typer
     public Konto(String kontonmr, float saldo){
         this.kontonmr = kontonmr;
         this.saldo = saldo;
@@ -25,7 +25,7 @@ abstract class Konto {
     }
 
 
-
+    //metoden används i childrens
     abstract void taUt(float belopp);
 }
 

@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-
+        //skapa listor för kunder och jobb
         ArrayList<Kund> kunder = new ArrayList<>();
         ArrayList<Jobbare> jobbarelista = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
@@ -22,10 +22,11 @@ public class Main {
         while(fortsatt) {
 
             try {
-
+                //vad användaren vill göra
                 System.out.println("Vill du registrera en kund eller ha ett jobb (kund/Jobb)");
                 String typ = scanner.nextLine();
 
+                //ifall jobb
                 if (typ.equalsIgnoreCase("Jobb")){
                     System.out.println("ange ditt namn: ");
                     String namn = scanner.nextLine();
@@ -33,9 +34,11 @@ public class Main {
                     System.out.println("Ange personnummer: ");
                     String personnummer = scanner.nextLine();
 
+                    //sparar och skapar en jobbare
                     Jobbare nyJobbare = new Jobbare(namn, personnummer);
                     jobbarelista.add(nyJobbare);
 
+                    //hämtar dagens datum
                     LocalDate idag = LocalDate.now();
                     LocalDate start = idag.plusWeeks(1);
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -45,6 +48,7 @@ public class Main {
 
                 }
 
+                //ifall kund
                 else if (typ.equalsIgnoreCase("kund")) {
 
                     System.out.println("ange ditt namn: ");
@@ -53,29 +57,33 @@ public class Main {
 
                     System.out.println("Ange ditt kund-ID; ");
                     int kundID = scanner.nextInt();
-                    scanner.nextLine(); // behöver vara där annars blir det något loop typ
+                    scanner.nextLine(); // behöver vara där annars blir det något loop typ(tömmer buffert)
 
                     System.out.println("Ange personnummer: ");
                     String personnummer = scanner.nextLine();
 
 
 
-                    //ny kund i listan med sin egna unikheter
+                    //skapar ny kund i listan
                     Kund nyKund = new Kund(namn, kundID, personnummer);
                     kunder.add(nyKund);
                     System.out.println("Kund registerad!");
 
+                    //frågar om lån, om nej fortsätter till ny kund
                     System.out.println("vill du ta ett lån (ja/nej)");
                     String svar = scanner.nextLine();
                     if (svar.equalsIgnoreCase("ja")) {
                         System.out.println("ange lånbelopp: ");
                         float lanebelopp = scanner.nextFloat();
                         scanner.nextLine();
-                        nyKund.laggTillLan(lanebelopp);
+                        nyKund.laggTillLan(lanebelopp); //skapar lån
                         System.out.println("tagit lån: " + lanebelopp);
                     }
 
+                    //visar lånebelopp
                     System.out.println("ditt lånebelopp: " + nyKund.getLaneBelopp());
+
+                    //vilket typ av konto som skapas
                     System.out.println("1. Sparkonto");
                     System.out.println("2. Lånekonto");
                     int kontoTyp = scanner.nextInt();
@@ -86,6 +94,7 @@ public class Main {
                     scanner.nextLine();
 
 
+                    //skapar nytt konto med if else beroende på vad som valts
                     Konto nyttKonto;
                     String kontonummer = "ID" + kundID;
 
@@ -100,10 +109,14 @@ public class Main {
                     }
 
 
+                    //kontot till kunden
                     nyKund.laggtillKonto(nyttKonto);
 
+                    //visar info om kontot
                     nyKund.visaInfoKonto();
 
+
+                    //frågar om taut funktionen ska användas om ja körs koden om nej loopar till start
                     System.out.println("Vill du ta ut pengar? (ja/nej)");
 
                     String svartaut = scanner.nextLine();
@@ -134,13 +147,14 @@ public class Main {
                 }
 
 
-
+                //håller koll på fel inmattning ifall bokstav för siffra t.ex.
             } catch (InputMismatchException e) {
                 System.out.println("fel inmattning");
                 scanner.nextLine();
             }
 
 
+            //frågar om användaren ska fortsätta
             System.out.println("vill du lägga till ytterligare kund? (ja/nej)");
             String fortsattsvar = scanner.nextLine();
             if (!fortsattsvar.equalsIgnoreCase("ja")) {
@@ -148,7 +162,12 @@ public class Main {
             }
         }
 
-        System.out.println(jobbarelista.get(0));
+        //visar info om första jobbaren om den finns, (hur många ska du ha)
+        if (!jobbarelista.isEmpty())
+        {
+            System.out.println(jobbarelista.get(0));
+        }
+
                scanner.close();
 
 

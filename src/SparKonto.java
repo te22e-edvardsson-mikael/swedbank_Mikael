@@ -3,6 +3,8 @@ public class SparKonto extends Konto{
     super(kontonmr, saldo);
 
     }
+
+    //ärver från konto och används för att göra uttag endast om man har tillräckligt med pengar
 @Override
     public void taUt(float belopp){
         if (belopp>getSaldo()){

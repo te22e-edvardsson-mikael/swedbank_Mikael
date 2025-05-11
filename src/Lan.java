@@ -2,8 +2,8 @@ public class Lan {
     private float belopp;
 
 
-
-   public Lan(float belopp){
+    //klass för lån kopplad till kund
+    public Lan(float belopp){
        this.belopp = belopp;
    }
 
