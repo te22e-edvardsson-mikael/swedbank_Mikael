@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+//ärver från person och har kund specifik info
 public class Kund extends Person {
     private int kundID;
     private ArrayList<Konto> konton;
@@ -29,7 +29,7 @@ public class Kund extends Person {
     public void laggTillLan(float belopp){
         this.lan = new Lan(belopp);
     }
-
+    //ifall beloppet inte anges, automatiskt 0
     public float getLaneBelopp(){
         return lan != null ? lan.getBelopp() : 0;
     }
@@ -37,7 +37,7 @@ public class Kund extends Person {
     //skriver ut info om all kundens konton
     public void visaInfoKonto(){
         for (Konto k : konton){
-            System.out.println("Konto skappad: " + k.getKontonmr() + " saldo: " + k.getSaldo());
+            System.out.println("Konto skapad: " + k.getKontonmr() + " saldo: " + k.getSaldo());
         }
     }
 

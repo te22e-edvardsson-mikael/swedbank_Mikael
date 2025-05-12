@@ -26,7 +26,7 @@ public class Main {
                 System.out.println("Vill du registrera en kund eller ha ett jobb (kund/Jobb)");
                 String typ = scanner.nextLine();
 
-                //ifall jobb
+                //ifall jobb, registrera jobbansökande
                 if (typ.equalsIgnoreCase("Jobb")){
                     System.out.println("ange ditt namn: ");
                     String namn = scanner.nextLine();
@@ -48,11 +48,11 @@ public class Main {
 
                 }
 
-                //ifall kund
+                //ifall kund, registrera ny kund
                 else if (typ.equalsIgnoreCase("kund")) {
 
                     System.out.println("ange ditt namn: ");
-                    String namn = scanner.nextLine();
+                    String namn = scanner.nextLine();//tar bort radbyte
 
 
                     System.out.println("Ange ditt kund-ID; ");
@@ -88,7 +88,7 @@ public class Main {
                     System.out.println("2. Lånekonto");
                     int kontoTyp = scanner.nextInt();
                     scanner.nextLine();
-
+                    //saldo defineras
                     System.out.println("hur mycket vill du lägga in?");
                     float saldo = scanner.nextFloat();
                     scanner.nextLine();
@@ -98,6 +98,7 @@ public class Main {
                     Konto nyttKonto;
                     String kontonummer = "ID" + kundID;
 
+                    //skapar lånekonto med kreditgräns
                     if (kontoTyp == 1) {
                         nyttKonto = new SparKonto(kontonummer, saldo);
                     } else {
@@ -125,7 +126,7 @@ public class Main {
                         System.out.println("Ange konto ID:t av det konto att ta ut från (ange endast ID numret): ");
                         String kontoID = "ID" + scanner.nextLine();
 
-
+                        //hämtar kontot med matchande kontoID
                         Konto valtKonto = null;
                         for (Konto k : nyKund.getKonton()){
                             if (k.getKontonmr().equals(kontoID))
@@ -134,6 +135,7 @@ public class Main {
                                 break;
                             }
                         }
+                        //frågar om beloppet som ska ut ur det specifika kontot
                         if (valtKonto != null){
                             System.out.println("Ange belopp att ta ut: ");
                             float belopp = scanner.nextFloat();
@@ -150,7 +152,7 @@ public class Main {
                 //håller koll på fel inmattning ifall bokstav för siffra t.ex.
             } catch (InputMismatchException e) {
                 System.out.println("fel inmattning");
-                scanner.nextLine();
+                scanner.nextLine();//återställ scanner
             }
 
 
@@ -162,6 +164,8 @@ public class Main {
             }
         }
 
+
+
         //visar info om första jobbaren om den finns, (hur många ska du ha)
         if (!jobbarelista.isEmpty())
         {
@@ -169,6 +173,7 @@ public class Main {
         }
 
                scanner.close();
+
 
 
     }

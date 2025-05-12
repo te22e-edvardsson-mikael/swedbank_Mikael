@@ -25,7 +25,7 @@ abstract class Konto {
     }
 
 
-    //metoden används i childrens
+    //abstakt metod för att ta ut belopp, används olika i olika kontotyper
     abstract void taUt(float belopp);
 }
 

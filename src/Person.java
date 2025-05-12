@@ -2,7 +2,7 @@ abstract class Person {
     protected String name;
     protected String personnummer;
 
-    //gemensam abstrakt klass för kund och jobbare
+    //gemensam abstrakt klass för personliga egenskaper
     public Person(String name, String personnummer){
         this.personnummer = personnummer;
         this.name = name;
